@@ -14,9 +14,7 @@ import math
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 def get_dist(test_data, train_data):
     dist_arr = []
-    test_count = 0
     for i in test_data:
-        test_count += 1
         dist = np.array([sci.distance.euclidean(i, data) for data in train_data])
         dist_arr.append(dist)
     return dist_arr
@@ -36,13 +34,6 @@ def predict(y_train, x_test, distance, K):
                 voting[label] = 1
         predicted_val.append(max(voting, key=voting.get))
     return predicted_val
-
-
-def dist(x1, x2):
-    a = np.array(x1)
-    b = np.array(x2)
-    return np.sqrt(np.sum(np.square(a - b)))
-
 
 # Press the green button in the gutter to run the script.
 def Kmeans(data, K):
